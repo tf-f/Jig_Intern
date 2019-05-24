@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>福井県のイベント情報</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--<script src="js/vue.js"></script>-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  
+  <body>
+    
+    
+    <div id="JsonReader">
+      <ul>
+        <li v-for="data in datalists">
+         <p>イベント名:{{data.event_name}} 説明: {{data.description}} 営業情報: {{data.remarks}} カテゴリ:{{data.category}}
+          開始期間:{{data.start_data}} 終了期間: {{data.end_data}} コンタクト:{{data.contace}} 電話番号:{{data.contact_phone_number}}
+          場所:{{data.event_place}} URL:{{data.event_place_url}} 住所{{data.address}}
+          メールアドレス{{data.mail_address}} 交通手段:{{data.transpotation}}
+          </p>
+<!--        <p>名前:{{data.name}} 年齢:{{data.age}} 趣味:{{data.hobby}} </p> -->
+        </li>
+      </ul>
+    </div>
+    
+    
+    <div id="app">
+    </div>
+    
+	  <footer>			
+      <div class="update-date">
+        最終更新日:	<time itemprop="datePublished" datetime="2019/4/15">2019年5月24日</time>
+        
+      </div>
+      <div class="copy-right">
+        <p>Coptyright © tf-f</p>
+      </div>
+    </footer>
+
+    
+    <script src="js/main.js"></script>
+  </body>
+
+</html>
