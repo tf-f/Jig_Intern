@@ -4,6 +4,92 @@ body {
   /* background: #feffdc; */
 }
 
+.navbar{
+  z-index: 20;
+  right:0;
+  height: 4rem;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eaecef;
+  padding: .7rem 1.5rem;
+  line-height: 2.2rem;
+}
+
+.navbar a, .navbar img,
+.navbar span{
+  display: inline-block;
+}
+
+a, p a code{
+  color: #4e6e8e;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a:visited{
+  color: inherit ;
+}
+
+.site-name{
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-font-smoothing:antialiased;
+  font-weight: 600;
+}
+
+.navbar span{
+  display: inline-block;
+}
+
+.navbar .links{
+  padding-left: 1.5rem;
+  box-sizing: border-box;
+  white-space: nowrap;
+  font-size: .9rem;
+  position: absolute;
+  right: 1.5rem;
+  top: .7rem;
+  display: flex;
+  max-width: 600px;
+}
+
+.navbar .links .search-box{
+
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  float:right;
+  vertical-align: top;
+}
+
+.search-box{
+  display: inline-block;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.search-box input{
+  cursor: text;
+  width: 10rem;
+  height: 2rem;
+  display: inline-block;
+  color: #4e6e8e;
+  border: 1px solid #cfd4dc;
+  border-radius: 2rem;
+  font-size: .9rem;
+  line-height: 2rem;
+  padding: 0 .5rem 0 2rem;
+  outline: none;
+  transition: all .2s ease;
+  background: #fff url(../img/search.svg)
+  .5rem no-repeat;
+  background-size: 1rem;
+}
+
 a {
   text-decoration: none;
 }
@@ -14,6 +100,12 @@ body,
   flex-direction: column;
   min-height: 100vh;
 }
+
+body,
+#JsonReader{
+/*  margin-top: 50px; */
+}
+
 
 li {
   list-style: none;
@@ -34,16 +126,14 @@ h1:target{
  
 
 header{
-	background: linear-gradient(#80ecff,#c9f8ff);
+	background: linear-gradient(#99ffa1,#84fd8e);
   height: 70px;
-  padding: 0px;
-  
+  padding-left: 10px;
+  position: fixed;
   left:0;
-  position:fixed;
   top:0;
   width:100%;
   z-index:24;  
-  
 }
 
 .link-bar{
@@ -58,16 +148,6 @@ header{
   display:  flex;
 }
 
-.Profile{
-  float: left;
-  font-size: 36px;
-  padding-left: 20px;
-  padding-right:10px; 
-/*  padding-top: 5px; */
-  
-}
-
-
 .header-list{
   /*float:right;*/
   padding-right: 10px;
@@ -81,8 +161,6 @@ header{
 .header-block li{
   padding-top:15px;
 }
-
-
 
 .header-block {
   float:left;
@@ -101,32 +179,36 @@ header{
    
 }
 
+.contents{
+  margin-top:100px;
+}
+
+.contents-block{
+
+}
+
+.Jump_Top{
+  background-color: rgb(78, 78, 78);
+    border-radius: 50%;
+    bottom: 50px;
+    color: #fff;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    outline: 0;
+    position: fixed;
+    right: 50px;
+    text-align: center;
+    width: 50px;
+}
     
 
 
-main{
-  margin-top: 70px;
-  
+.Option{
+  margin-top: 80px;
+  height: 150px; 
  
   /*height:900px;*/
-}
-
-
-.introduce {
-  padding: 10px;
-  background-color: #3f51b5;
-  text-align: center;
-}
-
-.introduce p{
-  color: #fff;
-}
-.introduce h1{
-  margin: 10px;
-}
-.introduce h2{
-  margin:10px;
-  margin-bottom:20px;
 }
 
 .icon{
@@ -145,20 +227,6 @@ img.icon-side-cut{
 .name{
   
   color:rgba(212, 212, 212, 0.972);
-}
-
-.about {
-  padding-left: 50px; 
-}
-
-.main-block h2{
-  text-align: center;
-}
-
-.main-block{
-  margin-left: 20px;
-  margin-right:20px;
-
 }
 
 .line {
@@ -183,7 +251,7 @@ img.icon-side-cut{
 footer {
   background-color: #2f5167;
   color: #fff;
-  height: 50px;
+  height: 100px;
   padding: 30x;
   width:100%;
   margin-top: auto;
@@ -192,11 +260,14 @@ footer {
 .site-link{
   padding-left: 20px;  
 }
-
+.contents-name-footer{
+  padding-left: 20px;
+  float:top;
+}
 .update-date{
   padding-right: 20px;
-  padding-top: 10px;
-  float:right; 
+/*  padding-top: 10px;*/
+  float:right;
 }
 
 .copy-right{

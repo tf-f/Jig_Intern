@@ -31,8 +31,22 @@
 * description : 説明
 * remarks : 営業情報など
 * category : カテゴリ
-* start_data : イベント開始期間
-* end_data : イベント終了期間
+  *全て表示
+  *歴史
+  *その他
+  *文化・芸術
+  *講座・セミナー
+  *こども
+  *スポーツ
+  *音楽
+  *自然・環境
+  *食・健康
+  *観光・祭り
+
+* イベント開催期間
+ * start_data : イベント開始期間
+ * end_data : イベント終了期間
+
 * contact : コンタクト
 * contact_phone_number : 電話番号
 * event_place : 場所

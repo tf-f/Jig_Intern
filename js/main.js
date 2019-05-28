@@ -2,15 +2,14 @@
 //import axios from 'axios';
 //require('es6-promise').polyfill();
 /* Json Reader
-  参考  https://jp.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
-        https://bee00break.hatenablog.com/entry/2018/10/05/001041
+https://jp.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
 */
 
 const URL = ('https://raw.githubusercontent.com/jigjp/intern_exam/master/fukui_event.json');
 const URL_ = ('json/test.json');
 
 var JsonReader = new Vue({
-  el: '#JsonReader',
+  el: '#app',
   data:{
     datalists: []
   },
@@ -26,3 +25,6 @@ var JsonReader = new Vue({
     });
   },
 });
+
+//Debug
+Vue.config.devtools = true

@@ -8,33 +8,86 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!--<script src="js/vue.js"></script>-->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-scrollto"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
   </head>
   
   <body>
-    
-    
-    <div id="JsonReader">
-      <ul>
-        <li v-for="data in datalists">
-         <p>イベント名:{{data.event_name}} 説明: {{data.description}} 営業情報: {{data.remarks}} カテゴリ:{{data.category}}
-          開始期間:{{data.start_data}} 終了期間: {{data.end_data}} コンタクト:{{data.contace}} 電話番号:{{data.contact_phone_number}}
-          場所:{{data.event_place}} URL:{{data.event_place_url}} 住所{{data.address}}
-          メールアドレス{{data.mail_address}} 交通手段:{{data.transpotation}}
-          </p>
-<!--        <p>名前:{{data.name}} 年齢:{{data.age}} 趣味:{{data.hobby}} </p> -->
-        </li>
-      </ul>
-    </div>
-    
-    
     <div id="app">
-    </div>
-    
-	  <footer>			
+      <header class="navbar">
+        <span class="site-name">Fukui Events Info</span>
+        <a href="#" class="home-link">
+        </a>
+      <div class="links">
+        <div class="search-box">
+          <input aria-label="Json内検索" autocomplete="off"
+          spellcheck="false" value class>
+        </div>
+        <div class="select-display-size">
+          <select name id="display-size" >
+            <option value="0" selected="">すべて表示</option>
+            <option value="10">10件表示</option>
+            <option value="20">20件表示</option>
+            <option value="30">30件表示</option>
+            <option value="40">40件表示</option>
+          </select>
+
+        </div>
+        <div class="select-genre">
+          <select name id="genre-lists">
+            <option value="All">全てのカテゴリー</option>
+            <option value="観光・祭り">観光・祭り</option>
+            <option value="食・健康">食・健康</option>
+            <option value="スポーツ">スポーツ</option>
+            <option value="文化・芸術">文化・芸術</option>
+            <option value="自然・環境">自然・環境</option>
+            <option value="講座・セミナー">講座・セミナー</option>
+            <option value="音楽">音楽</option>
+            <option value="こども">こども</option>
+            <option value="その他">その他</option>
+          </select>
+
+        </div>
+
+        <div class="mute-items">
+          <!--
+
+            /* 現在参加可能なイベントか */
+            /* 有料か無料か */
+          -->
+          </div>
+        
+      </header>
+
+      <div class="contents">
+
+        <ul id="main">
+          <li v-for="data in datalists">
+            <div class="contents-block">
+
+              <p>
+                <!--
+                  カテゴリ:{{data.remarks}}
+                -->
+                  
+                  イベント名:{{data.event_name}} 説明: {{data.description}} 営業情報: {{data.remarks}} カテゴリ:{{data.category}}
+                  開始期間:{{data.start_data}} 終了期間: {{data.end_data}} コンタクト:{{data.contace}} 電話番号:{{data.contact_phone_number}}
+                  場所:{{data.event_place}} URL:{{data.event_place_url}} 住所{{data.address}}
+                  メールアドレス{{data.mail_address}} 交通手段:{{data.transpotation}}
+
+              </p>
+            </div>
+<!--        <p>名前:{{data.name}} 年齢:{{data.age}} 趣味:{{data.hobby}} </p> -->
+          </li>
+        </ul>
+       </div>
+      </div>
+      <footer>			
+        <div class="contents-name-footer">
+          <h3>Fukui Events Info</h3>
+        </div>
       <div class="update-date">
         最終更新日:	<time itemprop="datePublished" datetime="2019/4/15">2019年5月24日</time>
-        
       </div>
       <div class="copy-right">
         <p>Coptyright © tf-f</p>
