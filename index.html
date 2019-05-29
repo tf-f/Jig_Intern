@@ -14,6 +14,7 @@
   </head>
   
   <body>
+
     <div id="app">
       <header class="navbar">
         <a href="#" class="home-link">
@@ -28,12 +29,11 @@
          
           <select name id="display-size" v-model="selected_size" >
             <!-- できたらJsonサイズ取得 変更 -->
-            <option value="1000" selected="">すべて表示</option>
-            <option value="10">10件表示</option>
-            <option value="20">20件表示</option>
-            <option value="30">30件表示</option>
-            <option value="40">40件表示</option>
+            <option v-for="option in select_value" v-bind:value="select_value.value">
+              <p>{{option.text}}</p>
+            </option>
           </select>
+
 
         </div>
         <div class="select-genre" v-model="selected_genre">
@@ -66,40 +66,41 @@
 
         <ul id="main">
           <!-- 条件分岐 -->
-          <li v-for="data in datalists">
+         <template v-for="(data,index) in datalists">
+            <li v-if="index < end">
 
-            <div class="contents-block">
-              
-              <!--
-                カテゴリ:{{data.remarks}}
-                お気に入り，非表示など
-               -->
-              <div class="title">
-                <span> {{data.event_name}}  </span>
-              </div>
-              <div class="intro">
-
-                <!--概要・説明:--> 
-                <div class="contents-description">
-                  {{data.description}} 
+              <div class="contents-block">
+                
+                <!--
+                  カテゴリ:{{data.remarks}}
+                  お気に入り，非表示など
+                -->
+                <div class="title">
+                  <span> {{data.event_name}}  </span>
                 </div>
-                <table class="contents-info">
-                  <!-- データの無いものは表示しないようにする? -->
-                  <tbody>
-                    <tr>
-                      <th>
-                        <p>営業時間・情報など</p>
-                      </th>
-                      <td>
-                        <p>・期間: {{data.start_date}} ～ {{data.end_date}}</p>
-                        <p>{{data.remarks}} </p>
-                      </td>
-                    </tr>
-                    
-                    <tr>
-                      <th>
-                        <p>場所</p>
-                      </th>
+                <div class="intro">
+                
+                  <!--概要・説明:--> 
+                  <div class="contents-description">
+                    {{data.description}} 
+                  </div>
+                  <table class="contents-info">
+                    <!-- データの無いものは表示しないようにする? -->
+                    <tbody>
+                      <tr>
+                        <th>
+                          <p>営業時間・情報など</p>
+                        </th>
+                        <td>
+                          <p>・期間: {{data.start_date}} ～ {{data.end_date}}</p>
+                          <p>{{data.remarks}} </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>
+                          <p>場所</p>
+                        </th>
+                          
                       <td>
                         <!--一方だけでOK?-->
                         <p>
@@ -133,7 +134,7 @@
                         <p>{{data.transportation}}</p>
                       </td>
                     </tr>
-
+                    
                     <tr>
                       <th>
                         <p>お問い合わせ</p><!--電話番号:-->
@@ -154,26 +155,33 @@
                         </p>
                       </td>
                     </tr>
-
+                    
                     <tr>
                       <th>
                         <p>ジャンル</p>
                       </th>
                       <td>
-                          <p>{{data.category}} </p>
+                        <p>{{data.category}} </p>
                       </td>
                     </tr>
                     
                   </tbody>
-                </table>
+                  </table>
+                </div>
+                
               </div>
-            
-            </div>
               
-<!--        <p>名前:{{data.name}} 年齢:{{data.age}} 趣味:{{data.hobby}} </p> -->
-          </li>
+            <!--        <p>名前:{{data.name}} 年齢:{{data.age}} 趣味:{{data.hobby}} </p> -->
+            </li>
+          </template>
         </ul>
-       </div>
+      </div>
+       
+      <p>{{end}}</p>
+       
+      
+      <div class="Jump_Top">
+        <a href="#" v-scroll-to="'#top'">Top</a>
       </div>
       
       <p class="btnArea" v-if="!isEnd()">
@@ -181,17 +189,13 @@
           もっと見る
         </a>
       </p>
+    </div>   
+        
       
-      <div class="Jump_Top">
-        <a href="#" v-scroll-to="'#top'">Top</a>
+    <footer>			
+      <div class="contents-name-footer">
+        <h3>Fukui Events Info</h3>
       </div>
-
-     
-
-      <footer>			
-        <div class="contents-name-footer">
-          <h3>Fukui Events Info</h3>
-        </div>
       <div class="update-date">
         最終更新日:	<time itemprop="datePublished" datetime="2019/4/15">2019年5月24日</time>
       </div>
@@ -199,7 +203,6 @@
         <p>Coptyright © tf-f</p>
       </div>
     </footer>
-
     
     <script src="js/main.js"></script>
   </body>
