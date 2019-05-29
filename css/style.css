@@ -364,13 +364,35 @@ img.icon-side-cut{
 }
 
 
+.btnArea{
+  height: 50px;
+  width: 100px;
+  margin-left: 45%;
+  display:flex;
+  border-radius: 8px;
+  align-items: center;
+  float: bottom;
+  background-color: rgba(85, 85, 85, 0.178);
+}
+
+.btnMore{
+  font-size:1.8rem !important;
+  font:rgb(255, 255, 255);
+  margin-left: 14px !important;
+
+}
+
 footer {
   background-color: #2f5167;
-  color: #fff;
+  color: rgb(2, 2, 2);
   height: 100px;
   padding: 30x;
   width:100%;
   margin-top: auto;
+}
+
+.contents-name-footer h3{
+  color: #fff;
 }
 
 .site-link{

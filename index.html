@@ -14,7 +14,7 @@
   </head>
   
   <body>
-
+    <div id="top"></div>
     <div id="app">
       <header class="navbar">
         <a href="#" class="home-link">
@@ -25,20 +25,21 @@
           <input aria-label="Json内検索" autocomplete="off"
           spellcheck="false" value class>
         </div>
+
+        
         <div class="select-display-size ">
-         
-          <select name id="display-size" v-model="selected_size" >
+          <select name id="display-size" v-model="selected_size">
             <!-- できたらJsonサイズ取得 変更 -->
-            <option v-for="option in select_value" v-bind:value="select_value.value">
-              <p>{{option.text}}</p>
+            <option v-for="svalue in select_value" v-bind:value="svalue.value">
+              <p>{{svalue.text}}</p>
             </option>
           </select>
-
-
         </div>
+
+
         <div class="select-genre" v-model="selected_genre">
           <select name id="genre-lists">
-            <option value="All">全てのカテゴリー</option>
+            <option value="All">全てのジャンル</option>
             <option value="観光・祭り">観光・祭り</option>
             <option value="食・健康">食・健康</option>
             <option value="スポーツ">スポーツ</option>
@@ -171,26 +172,26 @@
                 
               </div>
               
-            <!--        <p>名前:{{data.name}} 年齢:{{data.age}} 趣味:{{data.hobby}} </p> -->
             </li>
           </template>
         </ul>
       </div>
        
-      <p>{{end}}</p>
+<!--      <p>{{end}}</p> Debug -->
        
       
-      <div class="Jump_Top">
-        <a href="#" v-scroll-to="'#top'">Top</a>
-      </div>
       
       <p class="btnArea" v-if="!isEnd()">
         <a class="btnMore" @click="seemore()">
-          もっと見る
+          More 
         </a>
       </p>
     </div>   
-        
+
+    <div class="Jump_Top">
+      <a href="#" v-scroll-to="'#top'">Top</a>
+    </div>
+                    
       
     <footer>			
       <div class="contents-name-footer">
