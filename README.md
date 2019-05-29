@@ -44,10 +44,9 @@
   *観光・祭り
 
 * イベント開催期間
- * start_data : イベント開始期間
- * end_data : イベント終了期間
-
-* contact : コンタクト
+* start_data : イベント開始期間
+* end_data : イベント終了期間
+* contact : コンタクト 建物名
 * contact_phone_number : 電話番号
 * event_place : 場所
 * event_place_url : URL
