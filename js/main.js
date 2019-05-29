@@ -6,6 +6,8 @@ https://jp.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
 https://qiita.com/knaito-531/items/50935571e908a6425514
 https://ginpen.com/2016/12/11/how-to-get-values-from-form-with-vue/
 https://jp.vuejs.org/v2/guide/syntax.html
+https://qiita.com/MariMurotani/items/10702fbcae2997fcae80
+http://program.okitama.org/2017/09/2017-09-04_vue-searching-json/
 */
 
 const URL = ('https://raw.githubusercontent.com/jigjp/intern_exam/master/fukui_event.json');
@@ -30,7 +32,10 @@ var JsonReader = new Vue({
     // 初期行数
     selected_size: 1000,
     count: 5, //moreが押されたとき追加される行数
-    step: 0 // more が押された回数
+    step: 0, // more が押された回数
+
+    //search
+    keyword: ""
   },
   computed: {
     // debug
@@ -64,6 +69,12 @@ var JsonReader = new Vue({
     //追加で表示
     seemore: function(){
       this.step++;
+    },
+    reset_count: function(){
+      this.step = 0;
+    },
+    like: function(index, event){
+      this.datalists[index]
     }
     
     

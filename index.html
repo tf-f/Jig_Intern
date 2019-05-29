@@ -22,13 +22,13 @@
         </a>
       <div class="links">
         <div class="search-box">
-          <input aria-label="Json内検索" autocomplete="off"
-          spellcheck="false" value class>
+          <input v-model="keyword" autocomplete="off"
+          spellcheck="false" >
         </div>
 
         
         <div class="select-display-size ">
-          <select name id="display-size" v-model="selected_size">
+          <select name id="display-size" v-model="selected_size" @change="reset_count()">
             <!-- できたらJsonサイズ取得 変更 -->
             <option v-for="svalue in select_value" v-bind:value="svalue.value">
               <p>{{svalue.text}}</p>
@@ -176,9 +176,11 @@
           </template>
         </ul>
       </div>
-       
-<!--      <p>{{end}}</p> Debug -->
-       
+      
+      <!--
+      <p>{{end}}</p> Debug 
+  <p>{{keyword}}</p> 
+-->
       
       
       <p class="btnArea" v-if="!isEnd()">
