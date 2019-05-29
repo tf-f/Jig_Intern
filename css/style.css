@@ -90,6 +90,65 @@ a:visited{
   background-size: 1rem;
 }
 
+
+.select-display-size{
+  width:100px;
+} 
+
+.select-genre{
+  width: 140px;
+}
+
+.select-display-size, .select-genre{
+  overflow: hidden;
+  margin-right: 10px;
+  padding-left:10px;
+  margin-top:0px !important; 
+  margin-bottom: 0px !important;
+  margin:2em auto;
+  text-align: center;
+  position: relative;
+  border: 1px solid #bbbbbb;
+  background: #ffffff;
+  background-color: rgba(255, 255, 255, 0.692);
+  border-radius: 3px;
+
+}
+
+.select-display-size select, .select-genre select{
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select-display-box select::-ms-expand , .select-genre select::-ms-expand{
+  display: none;
+}
+
+.select-display-size::before , .select-genre::before{
+  position:absolute;
+  top:0.8em;
+  right: 0.9em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left:  6px solid transparent;
+  border-right:  6px solid transparent;
+  border-top:  6px solid #666666;
+  pointer-events: none;
+}
+
+ 
+
 a {
   text-decoration: none;
 }
@@ -212,13 +271,14 @@ header{
 
 .contents-description{
   float: top;
-  padding-left: 15px;
-  margin-top: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
   font-size: 1.1rem;
 }
 
 .intro{
   float:bottom;
+  margin: 20px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -230,9 +290,13 @@ table{
 }
 
 th{
-  width: 150px;
+  width: 160px;
 }
 
+th,td{
+  padding-left:10px;
+  padding-right: 10px;
+}
 
 table, tr, th, td{
   margin: 1rem 2rem 1rem 1rem;

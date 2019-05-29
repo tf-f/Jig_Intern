@@ -7,6 +7,7 @@
 		<title>福井県のイベント情報</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/click_copy.js"></script>
     <!--<script src="js/vue.js"></script>-->
     <script src="https://unpkg.com/vue-scrollto"></script>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
@@ -23,10 +24,11 @@
           <input aria-label="Json内検索" autocomplete="off"
           spellcheck="false" value class>
         </div>
-        <div class="select-display-size">
-          <select name id="display-size" >
+        <div class="select-display-size ">
+         
+          <select name id="display-size" v-model="selected_size" >
             <!-- できたらJsonサイズ取得 変更 -->
-            <option value="0" selected="">すべて表示</option>
+            <option value="1000" selected="">すべて表示</option>
             <option value="10">10件表示</option>
             <option value="20">20件表示</option>
             <option value="30">30件表示</option>
@@ -34,7 +36,7 @@
           </select>
 
         </div>
-        <div class="select-genre">
+        <div class="select-genre" v-model="selected_genre">
           <select name id="genre-lists">
             <option value="All">全てのカテゴリー</option>
             <option value="観光・祭り">観光・祭り</option>
@@ -65,6 +67,7 @@
         <ul id="main">
           <!-- 条件分岐 -->
           <li v-for="data in datalists">
+
             <div class="contents-block">
               
               <!--
@@ -101,7 +104,7 @@
                         <!--一方だけでOK?-->
                         <p>
                           <!--・建物名:-->
-                          <a href="{{data.event_place_url}}">
+                          <a v-bind:href="data.event_place_url">
                             {{data.event_place}}
                           </a>
                         </p>
@@ -114,7 +117,7 @@
                         -->
                         <!--・住所-->
                         <p>
-                          <a href="https://www.google.com/maps/place/{{data.address}}">
+                          <a v-bind:href="'https://www.google.com/maps/place/' + data.address">
                             {{data.address}}
                           </a>
                           
@@ -137,17 +140,17 @@
                       </th>
                       <td>
                         <p>
-                          ・URL:
-                          <a href="{{data.event_place_url}}">
+                          ・URL&nbsp;
+                          <a v-bind:href="data.event_place_url">
                             {{data.event_place_url}}
                           </a>
                         </p>
-                        <p>
-                          ・電話番号 {{data.contact_phone_number}}
+                        <p class="copy">
+                          ・電話番号&nbsp;{{data.contact_phone_number}}
                         </p>
                         <p>
                           <!--クリックボードにコピー:w -->
-                          ・メールアドレス{{data.mail_address}} 
+                          ・メールアドレス&nbsp;<span class="copy">{{data.mail_address}} </span>
                         </p>
                       </td>
                     </tr>
@@ -172,10 +175,18 @@
         </ul>
        </div>
       </div>
-
+      
+      <p class="btnArea" v-if="!isEnd()">
+        <a class="btnMore" @click="seemore()">
+          もっと見る
+        </a>
+      </p>
+      
       <div class="Jump_Top">
         <a href="#" v-scroll-to="'#top'">Top</a>
       </div>
+
+     
 
       <footer>			
         <div class="contents-name-footer">
