@@ -160,12 +160,6 @@ body,
   min-height: 100vh;
 }
 
-body,
-#JsonReader{
-/*  margin-top: 50px; */
-}
-
-
 li {
   list-style: none;
 
@@ -245,7 +239,7 @@ header{
   vertical-align: middle;
   display: -webkit-flex;
   display: flex;
-  -webkit-justify-content: center;
+  justify-content: center;
   -webkit-align-items: center;
   align-items: center;
 }
@@ -386,7 +380,6 @@ footer {
   background-color: #2f5167;
   color: rgb(2, 2, 2);
   height: 100px;
-  padding: 30x;
   width:100%;
   margin-top: auto;
 }
