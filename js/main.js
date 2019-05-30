@@ -28,6 +28,19 @@ var JsonReader = new Vue({
       {text: '30件表示', value: 30}
     ],
 
+    genre_value:[
+      {text: '全てのジャンル',value: 'All'},
+      {text: '観光・祭り',   value: '観光・祭り'},
+      {text: '食・健康',     value: '食・健康'},
+      {text: 'スポーツ',     value: 'スポーツ'},
+      {text: '文化・芸術',   value: '文化・芸術'},
+      {text: '自然・環境',   value: '自然・環境'},
+      {text: '講座・セミナー',value: '講座・セミナー'},
+      {text: '音楽',         value: '音楽'},
+      {text: '子供',         value: 'こども'},
+      {text: 'その他',       value: 'その他'},
+    ],
+
 
     
     selected_genre: 'All',    
@@ -115,19 +128,17 @@ var JsonReader = new Vue({
         if(event.description.indexOf(this.keyword) !== -1 ||
            event.event_name.indexOf(this.keyword) !== -1 ||
            event.contact.indexOf(this.keyword) !== -1) {
-             
+          //ジャンル 絞り込み
           if(this.selected_genre === 'All'){
-            eventDatalist.push(event);
+              eventDatalist.push(event);
           }else{
-            if(event.category.indexOf(this.selected_genre)){
+            if(event.category.indexOf(this.selected_genre) !== -1){
               eventDatalist.push(event);
             }
           }
         }
       }
-          
       return eventDatalist;
-          
     }
     
   },

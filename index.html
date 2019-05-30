@@ -37,18 +37,11 @@
         </div>
 
 
-        <div class="select-genre" v-model="selected_genre">
-          <select name id="genre-lists">
-            <option value="All">全てのジャンル</option>
-            <option value="観光・祭り">観光・祭り</option>
-            <option value="食・健康">食・健康</option>
-            <option value="スポーツ">スポーツ</option>
-            <option value="文化・芸術">文化・芸術</option>
-            <option value="自然・環境">自然・環境</option>
-            <option value="講座・セミナー">講座・セミナー</option>
-            <option value="音楽">音楽</option>
-            <option value="こども">こども</option>
-            <option value="その他">その他</option>
+        <div class="select-genre">
+          <select name id="genre-lists" v-model="selected_genre">
+            <option v-for="gvalue in genre_value" v-bind:value="gvalue.value">
+              <p>{{gvalue.text}}</p>
+            </option>
           </select>
 
         </div>
