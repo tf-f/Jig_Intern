@@ -7,10 +7,10 @@
 		<title>福井県のイベント情報</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="js/click_copy.js"></script>
-    <!--<script src="js/vue.js"></script>-->
     <script src="https://unpkg.com/vue-scrollto"></script>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="js/click_copy.js"></script>
+    <!--<script src="js/vue.js"></script>-->
   </head>
   
   <body>
@@ -22,7 +22,7 @@
         </a>
       <div class="links">
         <div class="search-box">
-          <input v-model="keyword" autocomplete="off"
+          <input type="text" v-model="keyword" autocomplete="off"
           spellcheck="false" >
         </div>
 
@@ -67,7 +67,7 @@
 
         <ul id="main">
           <!-- 条件分岐 -->
-         <template v-for="(data,index) in datalists">
+         <template v-for="(data,index) in SearchData()">
             <li v-if="index < end">
 
               <div class="contents-block">
@@ -180,6 +180,7 @@
       <!--
       <p>{{end}}</p> Debug 
   <p>{{keyword}}</p> 
+  <p>{{selected_genre}}</p>
 -->
       
       
@@ -207,7 +208,7 @@
       </div>
     </footer>
     
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script> 
   </body>
 
 </html>

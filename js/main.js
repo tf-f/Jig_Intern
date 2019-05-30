@@ -27,6 +27,9 @@ var JsonReader = new Vue({
       {text: '20件表示', value: 20},
       {text: '30件表示', value: 30}
     ],
+
+
+    
     selected_genre: 'All',    
     // more button の動作について
     // 初期行数
@@ -61,6 +64,35 @@ var JsonReader = new Vue({
 
   },
 
+  /* computedで検索させるとバグる？ */
+  /*
+  computed: {
+    //キーワード検索
+    SearchData: function(){
+      var eventDatalist = [];
+      for(var i in this.datalists){
+        var event = this.datalists[i];
+        
+        if(event.description.indexOf(this.keyword) !== -1 ||
+           event.event_name.indexOf(this.keyword) !== -1 ||
+           event.contact.indexOf(this.keyword) !== -1) {
+             
+             if(this.selected_genre === 'All'){
+               eventDatalist.push(event);
+              }else{
+                if(event.category.indexOf(this.selected_genre)){
+                  eventDatalist.push(event);
+                }
+              }
+            }
+          }
+          
+          return eventDatalist;
+          
+        }
+      },
+       */
+
   methods: {
     //データを指定件数まで表示したか:w
     isEnd: function(){
@@ -70,13 +102,33 @@ var JsonReader = new Vue({
     seemore: function(){
       this.step++;
     },
+    //表示件数が変わった際カウントのリセット
     reset_count: function(){
       this.step = 0;
     },
-    like: function(index, event){
-      this.datalists[index]
+    //キーワード検索
+    SearchData: function(){
+      var eventDatalist = [];
+      for(var i in this.datalists){
+        var event = this.datalists[i];
+        
+        if(event.description.indexOf(this.keyword) !== -1 ||
+           event.event_name.indexOf(this.keyword) !== -1 ||
+           event.contact.indexOf(this.keyword) !== -1) {
+             
+          if(this.selected_genre === 'All'){
+            eventDatalist.push(event);
+          }else{
+            if(event.category.indexOf(this.selected_genre)){
+              eventDatalist.push(event);
+            }
+          }
+        }
+      }
+          
+      return eventDatalist;
+          
     }
-    
     
   },
 });
