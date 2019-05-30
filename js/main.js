@@ -11,13 +11,13 @@ http://program.okitama.org/2017/09/2017-09-04_vue-searching-json/
 */
 
 const URL = ('https://raw.githubusercontent.com/jigjp/intern_exam/master/fukui_event.json');
-const URL_ = ('json/test.json');
+//const URL_ = ('json/test.json');
 
 var Top = new Vue({
   el:'#top'
 });
 
-var JsonReader = new Vue({
+var mainApp = new Vue({
   el: '#app',
   data:{
     datalists: [], //json 読み込み
@@ -109,7 +109,7 @@ var JsonReader = new Vue({
   methods: {
     //データを指定件数まで表示したか:w
     isEnd: function(){
-      return this.end > this.datalists;
+      return this.end > this.datalists.length;
     },
     //追加で表示
     seemore: function(){
@@ -119,12 +119,12 @@ var JsonReader = new Vue({
     reset_count: function(){
       this.step = 0;
     },
-    //キーワード検索
+    //検索 絞り込み機能:w
     SearchData: function(){
       var eventDatalist = [];
       for(var i in this.datalists){
         var event = this.datalists[i];
-        
+        //キーワード検索
         if(event.description.indexOf(this.keyword) !== -1 ||
            event.event_name.indexOf(this.keyword) !== -1 ||
            event.contact.indexOf(this.keyword) !== -1) {
